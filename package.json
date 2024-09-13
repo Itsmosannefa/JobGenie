@@ -1,7 +1,7 @@
 {
   "name": "job-portal",
   "version": "1.0.0",
-  "description": "Job portal project",
+  "description": "Job Portal is a full-featured web application designed to connect job seekers with employers. This platform allows users to search and apply for jobs, create profiles, and manage resumes, while employers can post job listings, manage applications, and view candidate profiles. Built with a modern tech stack, the project aims to streamline the hiring process for companies and job seekers alike. Features include job search filters, user authentication, resume upload, and email notifications.",
   "main": "index.js",
   "type": "module",
   "scripts": {
