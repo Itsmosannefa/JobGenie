@@ -10,6 +10,7 @@ import testRoutes from "./routes/testRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import errorMiddleware from "./middlewares/errorMiddleware.js";
 import userRouters from "./routes/userRoutes.js";
+import jobsRoutes from "./routes/jobsRoute.js"
 
 //Dot ENV config
 dotenv.config();
@@ -29,6 +30,7 @@ app.use(morgan('dev'));
 app.use("/api/v1/test", testRoutes);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/user', userRouters);
+app.use('/api/v1/job', jobsRoutes);
 
 // validation middleware
 app.use(errorMiddleware);
