@@ -1,25 +1,21 @@
-import userModel from "../models/userModel.js";
+import userModel from '../models/userModel.js';
 
-export const updateUserController = async (req,res,next) => {
-    const {name, email, location} = req.body;
+export const updateUserController = async (req, res,next) => {
+    const { name, lastName, email, password, location } = req.body;
     if(!name || !email || !lastName || !location){
-        res.status(400);
-        throw new Error('Please fill all the fields');
+        return res.status(400).json({error: 'All fields are required'});
     }
-    const user = await userModel.findOne({_id: req.user.userid});
+
+    const user = await userModel.findOne({_id: req.user.userId});
     user.name = name;
     user.lastName = lastName;
     user.email = email;
     user.location = location;
 
-
-    await user.save();
-    const token = await user.createJWT();
+    await user.save()
+    const token = user.createJWT()
     res.status(200).json({
-        status: 'success',
-        data: {
-            user,
-            token
-        }
+        user,
+        token
     });
 };
