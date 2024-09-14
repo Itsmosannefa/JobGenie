@@ -12,12 +12,12 @@ const jobSchema = new mangoose.Schema({
     },
     status : {
         type : String,
-        enum : ['pending','interview', 'declined', 'accepted'],
+        enum : ['pending','interview', 'reject', 'accepted'],
         default : 'pending'
     },
     workType : {
         type : String,
-        enum : ['full-time','part-time', 'contract', 'freelance'],
+        enum : ['full-time','part-time', 'contract', 'intership'],
         default : 'full-time'
     },
     workLocation : {
