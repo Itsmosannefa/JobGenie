@@ -1,7 +1,7 @@
 import userModel from '../models/userModel.js';
 
 export const updateUserController = async (req, res,next) => {
-    const { name, lastName, email, password, location } = req.body;
+    const { name, lastName, email, location } = req.body;
     if(!name || !email || !lastName || !location){
         return res.status(400).json({error: 'All fields are required'});
     }

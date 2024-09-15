@@ -156,8 +156,8 @@ export const jobStatsController = async (req,res) =>{
         {
             $group:{
                 _id :{
-                    year : {$year : `$createdAt`},
-                    month : {$month : `$createdAt`}
+                    year : {$year : $createdAt},
+                    month : {$month : $createdAt}
                 },
                 count :{
                     $sum : 1,
