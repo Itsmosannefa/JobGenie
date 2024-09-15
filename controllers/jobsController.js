@@ -44,16 +44,16 @@ export const getAllJobsController = async (req,res,next) => {
 
     //sorting
     if(sort === "latest"){
-        queryObject =queryResult.sort("-createdAt");
+        queryResult =queryResult.sort("-createdAt");
     }
     if(sort === "oldest"){
-        queryObject =queryResult.sort("createdAt");
+        queryResult =queryResult.sort("createdAt");
     }
     if(sort === "a-z"){
-        queryObject =queryResult.sort("position");
+        queryResult =queryResult.sort("position");
     }
     if(sort === "z-a"){
-        queryObject =queryResult.sort("-position");
+        queryResult =queryResult.sort("-position");
     }
 
     
