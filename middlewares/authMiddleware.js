@@ -1,6 +1,6 @@
 import JWT from 'jsonwebtoken';
 
-const userAuth = (req, res, next) => {
+const userAuth = async (req, res, next) => {
     const authHeader = req.headers.authorization
     if (!authHeader || !authHeader.startsWith('Bearer')) {
         next('authorization failed')
@@ -11,7 +11,7 @@ const userAuth = (req, res, next) => {
         req.user ={userId: playload.userId}
         next()
     } catch (error) {
-        next('authorization failed')
+        next('authorization failed');
     }
 }
 

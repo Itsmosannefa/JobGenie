@@ -7,8 +7,8 @@ const jobSchema = new mangoose.Schema({
     },
     position : {
         type : String,
-        required :[true, 'Position is required'],
-        maxlength :100
+        required :[true, 'Job Position is required'],
+        minlength :100
     },
     status : {
         type : String,
