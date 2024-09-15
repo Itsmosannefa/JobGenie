@@ -1,5 +1,4 @@
 import jobModel from "../models/jobModel.js";
-import jobsModel from "../models/jobModel.js";
 import mongoose from "mongoose";
 import moment from "moment";
 
@@ -12,7 +11,7 @@ export const createJobContoller = async (req, res,next) => {
         next('Please Provide All Fields')
     }
     req.body.createdBy = req.user.userId 
-    const job = await jobsModel.create(req.body)
+    const job = await jobModel.create(req.body)
     res.status(201).json({job});
 
 };
@@ -44,16 +43,16 @@ export const getAllJobsController = async (req,res,next) => {
 
     //sorting
     if(sort === "latest"){
-        queryObject =queryResult.sort("-createdAt");
+        queryResult =queryResult.sort("-createdAt");
     }
     if(sort === "oldest"){
-        queryObject =queryResult.sort("createdAt");
+        queryResult =queryResult.sort("createdAt");
     }
     if(sort === "a-z"){
-        queryObject =queryResult.sort("position");
+        queryResult =queryResult.sort("position");
     }
     if(sort === "z-a"){
-        queryObject =queryResult.sort("-position");
+        queryResult =queryResult.sort("-position");
     }
 
     
@@ -79,7 +78,7 @@ export const updateJobController = async (req,res,next) => {
         }
 
         //find job
-        const job = await jobsModel.findOne({_id:id})
+        const job = await jobModel.findOne({_id:id})
 
         //Validation
         if(!job){
@@ -104,7 +103,7 @@ export const deleteJobController = async (req,res,next) => {
 
     const {id} =req.params
     //find job
-    const job = await jobsModel.findOne({_id:id})
+    const job = await jobModel.findOne({_id:id})
 
     //validation
     if(!job){
