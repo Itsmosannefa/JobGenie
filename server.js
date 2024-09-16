@@ -5,6 +5,9 @@ import dotenv from 'dotenv';
 import colors from "colors";
 import cors from 'cors'
 import morgan from "morgan";
+import helmet from 'helmet';
+import xss from "xss-clean";
+import mongoSanitize from "express-mongo-sanitize";
 import connecDB from "./config/db.js";
 import testRoutes from "./routes/testRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -22,6 +25,9 @@ connecDB();
 const app = express()
 
 //middleware
+app.use(helmet());
+app.use(xss());
+app.use(mongoSanitize());
 app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
