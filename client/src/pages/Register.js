@@ -54,7 +54,7 @@ const Register = () => {
         <div className="form-container">
           <form className="card p-2" onSubmit={handleSubmit}>
             <img
-              src="/assets/images/logo/logo.png"
+              src="\assets\images\logo\logo.jpg"
               alt="logo"
               height={150}
               width={400}

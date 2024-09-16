@@ -6,6 +6,7 @@ import axios from "axios";
 import { hideLoading, showLoading } from "../redux/features/alertSlice";
 import Spinner from "../components/shared/Spinner";
 import { toast } from "react-toastify";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,7 +45,7 @@ const Login = () => {
         <div className="form-container">
           <form className="card p-2" onSubmit={handleSubmit}>
             <img
-              src="/assets/images/logo/logo.png"
+              src="\assets\images\logo\logo.jpg"
               alt="logo"
               height={150}
               width={400}
