@@ -8,11 +8,9 @@ import dotenv from 'dotenv';
 import colors from "colors";
 import cors from 'cors'
 import morgan from "morgan";
-// //Security Packages
-// import helmet from "helmet";
-// import xss from "xss-clean";
-// import mongoSanitize from "express-mongo-sanitize"
-//files imports
+import helmet from 'helmet';
+import xss from "xss-clean";
+import mongoSanitize from "express-mongo-sanitize";
 import connecDB from "./config/db.js";
 //Routes imports
 import testRoutes from "./routes/testRoutes.js";
@@ -52,6 +50,9 @@ const spec =swaggerJSDoc(options)
 const app = express()
 
 //middleware
+app.use(helmet());
+app.use(xss());
+app.use(mongoSanitize());
 app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
