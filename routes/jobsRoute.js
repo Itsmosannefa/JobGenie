@@ -10,6 +10,11 @@ router.post("/create-job", userAuth,createJobContoller)
 
 //GET ALL JOBS|| GET
 router.get("/get-job", userAuth , getAllJobsController)
+   
+
+
+
+
 
 //UPDATE JOB || PATCH
 router.patch("/update-job/:id",userAuth , updateJobController)
