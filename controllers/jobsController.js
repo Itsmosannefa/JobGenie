@@ -63,6 +63,7 @@ export const getAllJobsController = async (req,res,next) => {
     queryResult = queryResult.skip(skip).limit(limit)
     // jobs count 
     const totalJobs = await jobModel.countDocumnets(queryObject)
+
     const numOfPage =Math.ceil(totalJobs/limit);
 
     const jobs = await queryResult;
@@ -96,7 +97,7 @@ export const updateJobController = async (req,res,next) => {
             next(`you are not authorized to update this job`)
             return;
         }
-        const updateJob = await jobsModel.findOne({_id:id}, req.body , {
+        const updateJob = await jobModel.findOne({_id:id}, req.body , {
             new :true,
             runValidators :true
         })
@@ -127,58 +128,62 @@ export const deleteJobController = async (req,res,next) => {
 
 //----------------Stats Filter Job-------------------
 
-export const jobStatsController = async (req,res) =>{
+export const jobStatsController = async (req, res) => {
     const stats = await jobModel.aggregate([
-        // search by user jobs
-        {
-            $match :{
-                createdBy :new mongoose.Types.ObjectId(req.user.userId),
-            },
+      // search by user jobs
+      {
+        $match: {
+          createdBy: new mongoose.Types.ObjectId(req.user.userId),
         },
-        {
-            $group :{
-                _id : "$status",
-                count : {$sum : 1},           
-             }
-        }
-        
-    ])
-    
-    
-    //Default Stats
-    const DefaultStats ={
-        pending : stats.pending || 0,
-        interview : stats.interview || 0,
-        declined : stats.declined || 0,
-        accepted : stats.accepted || 0
-    }
-
+      },
+      {
+        $group: {
+          _id: "$status",
+          count: { $sum: 1 },
+        },
+      },
+    ]);
+  
+    //default stats
+    const defaultStats = {
+      pending: stats.pending || 0,
+      reject: stats.reject || 0,
+      interview: stats.interview || 0,
+    };
+  
     //monthly yearly stats
     let monthlyApplication = await jobModel.aggregate([
-        { 
-            $match:{
-                createdBy :new mongoose.Types.ObjectId(req.user.userId),
-            } 
+      {
+        $match: {
+          createdBy: new mongoose.Types.ObjectId(req.user.userId),
         },
-        {
-            $group:{
-                _id :{
-                    year : {$year : $createdAt},
-                    month : {$month : $createdAt}
-                },
-                count :{
-                    $sum : 1,
-                }
-
-            }
-        }
-
+      },
+      {
+        $group: {
+          _id: {
+            year: { $year: "$createdAt" },
+            month: { $month: "$createdAt" },
+          },
+          count: {
+            $sum: 1,
+          },
+        },
+      },
     ]);
-    monthlyApplication = monthlyApplication.map(item =>{
-        const {_id: { year,month},count} = item
-        const date = moment().month(month-1).year(year).format('MMM y')
-        return {date, count}
-    })
-    .reverse();
-    res.status(200).json({totalJob : stats.length , DefaultStats , monthlyApplication});
-};
+    monthlyApplication = monthlyApplication
+      .map((item) => {
+        const {
+          _id: { year, month },
+          count,
+        } = item;
+        const date = moment()
+          .month(month - 1)
+          .year(year)
+          .format("MMM Y");
+        return { date, count };
+      })
+      .reverse();
+    res
+      .status(200)
+      .json({ totlaJob: stats.length, defaultStats, monthlyApplication });
+  };
