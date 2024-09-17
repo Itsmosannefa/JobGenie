@@ -8,7 +8,7 @@ const userAuth = async (req, res, next) => {
     const token = authHeader.split(' ')[1]
     try {
         const playload = JWT.verify(token, process.env.JWT_SECRET)
-        req.user ={userId: playload.userId}
+        req.body.user ={userId: playload.userId}
         next()
     } catch (error) {
         next('authorization failed');
