@@ -24,7 +24,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (!name || !lastName || !email || !password) {
+      if (!name || !email || !password) {
         return toast.error("Please Provide All Fields");
       }
       dispatch(showLoading());

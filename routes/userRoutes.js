@@ -1,6 +1,6 @@
 import e from 'cors';
 import express from 'express';
-import { updateUserController } from '../controllers/userController.js';
+import { getUserController, updateUserController } from '../controllers/userController.js';
 import  userAuth  from '../middlewares/authMiddleware.js';
 
 //router object
@@ -8,7 +8,8 @@ const router = express.Router();
 
 
 //routes
-//GET USER || GET
+//GET USER DATA || POST
+router.post('/getUser', userAuth, getUserController)
 
 //Update User || PUT
 
