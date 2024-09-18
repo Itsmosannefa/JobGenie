@@ -51,9 +51,9 @@ function App() {
         <Route
           path="/AboutPage"
           element={
-            <PrivateRoute>
+            <PublicRoute>
               <AboutPage />
-            </PrivateRoute>
+            </PublicRoute>
           }
         />
         <Route path="*" element={<NotFound />} />
