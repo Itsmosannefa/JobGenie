@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 const Register = () => {
 	const [data, setData] = useState({
-		firstName: "",
+		name: "",
 		lastName: "",
 		email: "",
 		password: "",
@@ -52,9 +52,9 @@ const Register = () => {
 						<input
 							type="text"
 							placeholder="First Name"
-							name="firstName"
+							name="name"
 							onChange={handleChange}
-							value={data.firstName}
+							value={data.name}
 							required
 							className={styles.input}
 						/>
