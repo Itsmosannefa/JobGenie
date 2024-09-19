@@ -30,6 +30,10 @@ const Login = () => {
 	};
 
 	return (
+		<>
+		<video autoPlay muted loop id="myVideo">
+        	<source src="/assets/videos/bg.mp4" type="video/mp4" />
+        </video>
 		<div className={styles.login_container}>
 			<div className={styles.login_form_container}>
 				<div className={styles.left}>
@@ -43,7 +47,7 @@ const Login = () => {
 							value={data.email}
 							required
 							className={styles.input}
-						/>
+							/>
 						<input
 							type="password"
 							placeholder="Password"
@@ -52,7 +56,7 @@ const Login = () => {
 							value={data.password}
 							required
 							className={styles.input}
-						/>
+							/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.white_btn}>
 							Sign In
@@ -70,6 +74,7 @@ const Login = () => {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };
 

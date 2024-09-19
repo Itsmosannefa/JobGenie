@@ -36,6 +36,10 @@ const Register = () => {
 	};
 
 	return (
+		<>
+		<video autoPlay muted loop id="myVideo">
+        	<source src="/assets/videos/bg.mp4" type="video/mp4" />
+        </video>
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
@@ -58,7 +62,7 @@ const Register = () => {
 							value={data.name}
 							required
 							className={styles.input}
-						/>
+							/>
 						<input
 							type="text"
 							placeholder="Last Name"
@@ -67,7 +71,7 @@ const Register = () => {
 							value={data.lastName}
 							required
 							className={styles.input}
-						/>
+							/>
 						<input
 							type="email"
 							placeholder="Email"
@@ -76,7 +80,7 @@ const Register = () => {
 							value={data.email}
 							required
 							className={styles.input}
-						/>
+							/>
 						<input
 							type="password"
 							placeholder="Password"
@@ -85,7 +89,7 @@ const Register = () => {
 							value={data.password}
 							required
 							className={styles.input}
-						/>
+							/>
 						{error && <div className={styles.error_msg}>{error}</div>}
 						<button type="submit" className={styles.white_btn}>
 							Sign Up
@@ -94,6 +98,7 @@ const Register = () => {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };
 

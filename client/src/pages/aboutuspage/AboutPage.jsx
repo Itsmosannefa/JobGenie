@@ -17,7 +17,7 @@ const AboutPage = () => {
                 <nav className={styles.navbar}>
                     <div className={styles.logo}>
                         <Link to="/">
-                            <img src="/assets/images/logo/logo.jpg" alt="logo" />
+                        <img src="/assets/images/favicons/favicon-32x32.png" alt="logo" />
                         </Link>
                     </div>
                     <div className={`${styles['menu-icon']} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
@@ -27,8 +27,7 @@ const AboutPage = () => {
                     </div>
                     <ul className={`${styles['nav-links']} ${menuOpen ? styles.show : ''}`}>
                         <li><Link to="/HomePage">Home</Link></li>
-                        <li><Link to="/AboutPage">About</Link></li>
-                        <li><Link to="/services">Services</Link></li>
+                        <li><Link to="/AboutPage">About us</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/login" className={styles.myBtn}>Login</Link></li>
                     </ul>
@@ -36,6 +35,7 @@ const AboutPage = () => {
             </div>
 
             <div className={styles.content}>
+                <img src="" alt="" />
                 <h1>About Us</h1>
                 <p className={styles.par}>
                     Welcome to Job Genie! We are passionate about delivering top-notch services in web development, software engineering, and digital solutions. Our team of developers is dedicated to creating innovative and efficient code for a variety of projects.
@@ -52,7 +52,7 @@ const AboutPage = () => {
                 </p>
                 <p className={styles.par}>
                     <strong>Team Member:</strong> Mosannefa Khanam,<br />
-                    <strong>Email:</strong> khanammosanefa@gmail.com<br />
+                    <strong>Email:</strong> khanammosannefa@gmail.com<br />
                     <strong>State:</strong> Jharkhand,<br />
                 </p>
                 <p className={styles.par}>
@@ -66,17 +66,17 @@ const AboutPage = () => {
                     <strong>State:</strong> Gujarat,<br />
                 </p>
                 <p className={styles.par}>
-                    <strong>Team Lead:</strong> Vivek Kumar,<br />
+                    <strong>Team Member:</strong> Vivek Kumar,<br />
                     <strong>Email:</strong> vivekkumar090902@gmail.com<br />
                     <strong>State:</strong> ?,<br />
                 </p>
                 <p className={styles.par}>
-                    <strong>Team Lead:</strong> Manoj,<br />
+                    <strong>Team Member:</strong> Manoj,<br />
                     <strong>Email:</strong> kannanmanoj2005@gmail.com<br />
                     <strong>State:</strong> Tamil Nadu,<br />
                 </p>
                 <p className={styles.par}>
-                    <strong>Team Lead:</strong> Ashwathy,<br />
+                    <strong>Team Member:</strong> Ashwathy,<br />
                     <strong>Email:</strong> aswathynvv@gmail.com<br />
                     <strong>State:</strong> ?,<br />
                 </p>

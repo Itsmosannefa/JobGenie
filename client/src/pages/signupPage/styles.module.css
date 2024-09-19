@@ -13,7 +13,17 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    background: linear-gradient(to right, rgb(146, 254, 227), rgb(104, 186, 248));
+}
+
+/* Video background */
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+  object-fit: cover;
+  z-index: -1;
 }
 
 .signup_container {
@@ -39,7 +49,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: rgb(255, 255, 255);
+	background-color: rgba(255, 255, 255, 0.355);
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
@@ -74,8 +84,8 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background: linear-gradient(to right, rgba(53, 160, 237, 0.86), rgba(73, 250, 250, 0.718));
-    color: whitesmoke;
+	background: linear-gradient(to right, rgba(53, 160, 237, 0.466), rgba(73, 250, 250, 0.318));
+    color: black;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
