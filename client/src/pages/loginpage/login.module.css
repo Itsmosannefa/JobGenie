@@ -1,7 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display", serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background: linear-gradient(to right, rgb(146, 254, 227), rgb(104, 186, 248));
+}
+
 .login_container {
 	width: 100%;
 	min-height: 100vh;
-	background-color: #f5f5f5;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -22,7 +39,8 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: white;
+	background: linear-gradient(to right, rgba(53, 160, 237, 0.86), rgba(73, 250, 250, 0.718));
+    color: whitesmoke;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
@@ -66,33 +84,69 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #3bb19b;
+	background-color: rgb(255, 255, 255);
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 }
 
 .right h1 {
 	margin-top: 0;
-	color: white;
-	font-size: 40px;
+	color: black;
+	font-size: 30px;
 	align-self: center;
+}
+
+.right img{
+	width: 200px;
+	max-width: 220px;
+	height: auto;
+	background: transparent; 
+	animation: floating 3s ease-in-out infinite;
+}
+@keyframes floating {
+	0%, 100% {
+	  transform: translateY(0);
+	}
+	50% {
+	  transform: translateY(-10px);
+	}
+  
 }
 
 .white_btn,
 .green_btn {
-	border: none;
-	outline: none;
-	padding: 12px 0;
-	background-color: white;
-	border-radius: 20px;
-	width: 180px;
-	font-weight: bold;
-	font-size: 14px;
-	cursor: pointer;
+	border: 1px solid transparent;
+    border-radius: 18px;
+    background-color: white;
+    color:black;
+    box-shadow: 0px 1px 7px 1px #00000070;
+    font-size: 12px;
+    padding: 10px 40px;
+    letter-spacing: 0.7px;
+    margin-top: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .green_btn {
-	background-color: #3bb19b;
+	background-color: rgb(53, 160, 237);
 	color: white;
 	margin: 10px;
+}
+
+.green_btn:hover{
+	transform: scale(0.9);
+    transition: all 0.3s ease-in-out;
+}
+.white_btn:hover{
+	transform: scale(0.9);
+    transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 900px) {
+	 body {
+        height: 100vh;
+        justify-content: center;
+    }
 }
