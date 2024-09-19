@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "../styles/Homepage.css";
-import "../pages/AboutPage.js"
+import "./aboutuspage/AboutPage.jsx"
 
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ const HomePage = () => {
       <nav className="navbar">
         <div className="logo">
           <Link to="/">
-            <img src="/assets/images/logo/logo.jpg" alt="logo" />
+            <img src="/assets/images/favicons/favicon-32x32.png" alt="logo" />
           </Link>
         </div>
         <div className={`menu-icon ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
