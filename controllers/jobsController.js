@@ -17,64 +17,58 @@ export const createJobContoller = async (req, res,next) => {
 };
 
 //----------------Get Jobs-------------------
-export const getAllJobsController = async (req,res,next) => {
-    const {status ,workType , search , sort} = req.query
-    //Conditions for Searching filters
-    let queryObject = {
-        createdBy : req.user.userId
-    }
+export const getAllJobsController = async (req, res, next) => {
+  //conditons for searching filters
+  const { status, workType, search, sort } = req.query;
+  const queryObject = {
+    createdBy: req.user.userId,
+  };
+  //logic filters
+  if (status && status !== "all") {
+    queryObject.status = status;
+  }
+  if (workType && workType !== "all") {
+    queryObject.workType = workType;
+  }
+  if (search) {
+    queryObject.position = { $regex: search, $options: "i" };
+  }
 
-    //logic fillers
-    //status
-    if(status && status !== 'all'){
-        queryObject.status = status
-    }
-    //workType
-    if(workType && workType !=='all'){
-        queryObject.workType = workType
-    }
-    //position
-    if(search ){
-        queryObject.position = { $regex : search, $options : 'i'};
-    }
+  let queryResult = jobModel.find(queryObject);
 
-    let queryResult = jobModel.find(queryObject)
+  //sorting
+  if (sort === "latest") {
+    queryObject = queryResult.sort("-createdAt");
+  }
+  if (sort === "oldest") {
+    queryObject = queryResult.sort("createdAt");
+  }
+  if (sort === "a-z") {
+    queryObject = queryResult.sort("position");
+  }
+  if (sort === "z-a") {
+    queryObject = queryResult.sort("-position");
+  }
+  //pagination
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
 
+  queryResult = queryResult.skip(skip).limit(limit);
+  //jobs count
+  const totalJobs = await jobModel.countDocuments(queryResult);
+  const numOfPage = Math.ceil(totalJobs / limit);
 
-    //sorting
-    if(sort === "latest"){
-        queryResult =queryResult.sort("-createdAt");
-    }
-    if(sort === "oldest"){
-        queryResult =queryResult.sort("createdAt");
-    }
-    if(sort === "a-z"){
-        queryResult =queryResult.sort("position");
-    }
-    if(sort === "z-a"){
-        queryResult =queryResult.sort("-position");
-    }
- 
-    // pagination 
-    const page = Number(req.query.page) || 1
-    const limit = Number(req.query.limit) || 10
-    const skip = (page-1)* limit
+  const jobs = await queryResult;
 
-    queryResult = queryResult.skip(skip).limit(limit)
-    // jobs count 
-    const totalJobs = await jobModel.countDocumnets(queryObject)
-
-    const numOfPage =Math.ceil(totalJobs/limit);
-
-    const jobs = await queryResult;
-
-    // const jobs = await jobsModel.find({createdBy:req.user.userId})
-   res.status(200).json({
+  // const jobs = await jobsModel.find({ createdBy: req.user.userId });
+  res.status(200).json({
     totalJobs,
     jobs,
-    numOfPage
-   });
+    numOfPage,
+  });
 };
+
 //----------------Update Job-------------------
 
 export const updateJobController = async (req,res,next) => {

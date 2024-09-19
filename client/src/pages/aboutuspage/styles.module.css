@@ -1,0 +1,96 @@
+/* styles.module.css */
+.bg {
+    background-color: #007bff; /* Blue background */
+    color: #fff;
+    height: 100vh;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.menu-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    transition: 0.4s;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links.show {
+    display: block;
+}
+
+.myBtn {
+    background-color: white;
+    color: #007bff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.content h1, .content h2 {
+    margin-bottom: 20px;
+}
+
+.par {
+    margin-bottom: 15px;
+}
+
+.cn {
+    background-color: white;
+    color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cn a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.cn:hover {
+    background-color: #0056b3;
+    color: white;
+}
