@@ -5,6 +5,7 @@ import Login from "./pages/loginpage/login.jsx";
 import Register from "./pages/signupPage/signUp.jsx";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Contact from "./pages/contact/contact"; // Import the new Contact page
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -13,7 +14,6 @@ import PublicRoute from "./components/routes/PublicRoute";
 function App() {
   return (
     <>
-      {" "}
       <ToastContainer />
       <Routes>
         <Route
@@ -53,6 +53,15 @@ function App() {
           element={
             <PublicRoute>
               <AboutPage />
+            </PublicRoute>
+          }
+        />
+        {/* Add Contact route */}
+        <Route
+          path="/contact"
+          element={
+            <PublicRoute>
+              <Contact />
             </PublicRoute>
           }
         />

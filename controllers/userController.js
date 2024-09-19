@@ -42,6 +42,6 @@ export const getUserController = async (req,res,next) => {
             message:'auth error',
             success:false,
             error:error.message
-        })
-    }
+   })
+}
 };
