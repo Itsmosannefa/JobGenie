@@ -39,9 +39,10 @@ const Register = () => {
 		<div className={styles.signup_container}>
 			<div className={styles.signup_form_container}>
 				<div className={styles.left}>
+				<img src="/assets/images/logo/logo.jpg" alt="" />
 					<h1>Welcome Back</h1>
 					<Link to="/login">
-						<button type="button" className={styles.white_btn}>
+						<button type="button" className={styles.green_btn}>
 							Sing in
 						</button>
 					</Link>
@@ -86,7 +87,7 @@ const Register = () => {
 							className={styles.input}
 						/>
 						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
+						<button type="submit" className={styles.white_btn}>
 							Sign Up
 						</button>
 					</form>
