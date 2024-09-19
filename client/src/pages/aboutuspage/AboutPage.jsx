@@ -28,7 +28,6 @@ const AboutPage = () => {
                     <ul className={`${styles['nav-links']} ${menuOpen ? styles.show : ''}`}>
                         <li><Link to="/HomePage">Home</Link></li>
                         <li><Link to="/AboutPage">About us</Link></li>
-                        <li><Link to="/services">Services</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/login" className={styles.myBtn}>Login</Link></li>
                     </ul>

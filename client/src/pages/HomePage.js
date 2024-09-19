@@ -26,7 +26,6 @@ const HomePage = () => {
         <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/AboutPage">About us</Link></li>
-          <li><Link to="/services">Services</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/login" className="myBtn">Login</Link></li>
         </ul>
