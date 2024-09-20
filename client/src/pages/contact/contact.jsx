@@ -34,15 +34,15 @@ const Contact = () => {
             you as soon as possible.
           </p>
           <div className="information">
-            <img src="./assets/location.png" alt="icon" className="icon" />
+            <img src=".\assets\images\contactImages\location.png" alt="icon" className="icon" />
             <p>Your address here</p>
           </div>
           <div className="information">
-            <img src="./assets/phone.png" alt="icon" className="icon" />
+            <img src=".\assets\images\contactImages\phone.png" alt="icon" className="icon" />
             <p>+123 456 789</p>
           </div>
           <div className="information">
-            <img src="./assets/email.png" alt="icon" className="icon" />
+            <img src=".\assets\images\contactImages\email.png" alt="icon" className="icon" />
             <p>email@domain.com</p>
           </div>
         </div>

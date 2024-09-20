@@ -35,7 +35,6 @@ const AboutPage = () => {
             </div>
 
             <div className={styles.content}>
-                <img src="" alt="" />
                 <h1>About Us</h1>
                 <p className={styles.par}>
                     Welcome to Job Genie! We are passionate about delivering top-notch services in web development, software engineering, and digital solutions. Our team of developers is dedicated to creating innovative and efficient code for a variety of projects.
