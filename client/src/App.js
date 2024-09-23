@@ -5,7 +5,8 @@ import Login from "./pages/loginpage/login.jsx";
 import Register from "./pages/signupPage/signUp.jsx";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
-import Contact from "./pages/contact/contact"; // Import the new Contact page
+import Contact from "./pages/contact/contact";
+import Job from "./pages/jobs/job"; // Import the JobList component
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -56,13 +57,21 @@ function App() {
             </PublicRoute>
           }
         />
-        {/* Add Contact route */}
         <Route
           path="/contact"
           element={
             <PublicRoute>
               <Contact />
             </PublicRoute>
+          }
+        />
+        {/* Add JobList route */}
+        <Route
+          path="/job"
+          element={
+            <PrivateRoute>
+              <Job /> {/* Jobs page is protected with PrivateRoute */}
+            </PrivateRoute>
           }
         />
         <Route path="*" element={<NotFound />} />
