@@ -77,6 +77,10 @@ body {
 	font-size: 14px;
 }
 
+.input::placeholder{
+	color: rgba(0, 0, 0, 0.525);
+}
+
 .error_msg {
 	width: 370px;
 	padding: 15px;

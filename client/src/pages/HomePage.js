@@ -17,6 +17,7 @@ const HomePage = () => {
           <Link to="/">
             <img src="/assets/images/favicons/favicon-32x32.png" alt="logo" />
           </Link>
+        <p className="job-genie">Job <span className="genie">Genie</span></p>
         </div>
         <div className={`menu-icon ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
           <div className="bar1"></div>
