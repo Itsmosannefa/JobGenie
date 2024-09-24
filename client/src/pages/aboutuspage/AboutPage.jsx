@@ -1,38 +1,14 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css'; // Correct way to import CSS module
 import { Link } from 'react-router-dom';
+import Navbar from '../../components/shared/Navbar';
 
 const AboutPage = () => {
-    // State for menu toggle
-    const [menuOpen, setMenuOpen] = useState(false);
-
-    // Function to toggle the menu
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
-
+   
     return (
         <div className={styles.bg}>
             <div className={styles.main}>
-                <nav className={styles.navbar}>
-                    <div className={styles.logo}>
-                        <Link to="/">
-                        <img src="/assets/images/favicons/favicon-32x32.png" alt="logo" />
-                        </Link>
-                        <p className="job-genie">Job <span className="genie">Genie</span></p>
-                    </div>
-                    <div className={`${styles['menu-icon']} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
-                        <div className={styles.bar1}></div>
-                        <div className={styles.bar2}></div>
-                        <div className={styles.bar3}></div>
-                    </div>
-                    <ul className={`${styles['nav-links']} ${menuOpen ? styles.show : ''}`}>
-                        <li><Link to="/HomePage">Home</Link></li>
-                        <li><Link to="/AboutPage">About us</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
-                        <li><Link to="/login" className={styles.myBtn}>Login</Link></li>
-                    </ul>
-                </nav>
+                <Navbar></Navbar>
             </div>
 
             <div className={styles.content}>

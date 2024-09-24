@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/routes/PrivateRoute";
 import PublicRoute from "./components/routes/PublicRoute";
+import JobSearch from "./pages/JobSearch.js";
 
 function App() {
   return (
@@ -38,6 +39,14 @@ function App() {
           element={
             <PublicRoute>
               <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/JobSearch"
+          element={
+            <PublicRoute>
+              <JobSearch />
             </PublicRoute>
           }
         />
