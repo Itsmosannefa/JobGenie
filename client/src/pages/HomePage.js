@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import "../styles/Homepage.css";
-import "./aboutuspage/AboutPage.jsx"
 
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,7 +25,7 @@ const HomePage = () => {
         </div>
         <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/job">Jobs</Link></li>
+          <li><Link to="/Job">Jobs</Link></li>
           <li><Link to="/AboutPage">About us</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/login" className="myBtn">Login</Link></li>

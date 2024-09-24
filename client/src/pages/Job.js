@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllJobs, createJob, deleteJob, updateJob } from '../../redux/features/jobslice';
+import { getAllJobs, createJob, deleteJob, updateJob } from '../redux/features/jobslice.js';
+import "../styles/Job.css";
 import { toast } from 'react-toastify';
 
-const Job = () => {
+function Job() {
   const dispatch = useDispatch();
   const { jobs, isLoading, error } = useSelector((state) => state.jobs);
   const [formData, setFormData] = useState({
@@ -45,45 +47,43 @@ const Job = () => {
   };
 
   return (
-    <div>
+    <div className="job-management">
       <h1>Jobs Management</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Company"
-          value={formData.company}
+      <form className="job-form" onSubmit={handleSubmit}>
+        <input 
+          type="text" 
+          placeholder="Company" 
+          value={formData.company} 
           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
         />
-        <input
-          type="text"
-          placeholder="Position"
-          value={formData.position}
+        <input 
+          type="text" 
+          placeholder="Position" 
+          value={formData.position} 
           onChange={(e) => setFormData({ ...formData, position: e.target.value })}
         />
-        <input
-          type="number"
-          placeholder="Salary"
-          value={formData.salary}
+        <input 
+          type="number" 
+          placeholder="Salary" 
+          value={formData.salary} 
           onChange={(e) => setFormData({ ...formData, salary: e.target.value })}
         />
         <button type="submit">Create Job</button>
       </form>
-
-      {isLoading ? <p>Loading...</p> : null}
-      {error ? <p>{error}</p> : null}
-
-      <ul>
+      {isLoading ? <p className="loader">Loading...</p> : null}
+      {error ? <p className="error-message">{error.message}</p> : null}
+      <ul className="job-list">
         {jobs.map((job) => (
           <li key={job._id}>
             <p>{job.company}</p>
             <p>{job.position}</p>
-            <button onClick={() => handleUpdate(job._id)}>Update</button>
-            <button onClick={() => handleDelete(job._id)}>Delete</button>
+            <button className="update-btn" onClick={() => handleUpdate(job._id)}>Update</button>
+            <button className="delete-btn" onClick={() => handleDelete(job._id)}>Delete</button>
           </li>
         ))}
       </ul>
     </div>
   );
-};
+}
 
 export default Job;

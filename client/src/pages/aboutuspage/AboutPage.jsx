@@ -19,6 +19,7 @@ const AboutPage = () => {
                         <Link to="/">
                         <img src="/assets/images/favicons/favicon-32x32.png" alt="logo" />
                         </Link>
+                        <p className="job-genie">Job <span className="genie">Genie</span></p>
                     </div>
                     <div className={`${styles['menu-icon']} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
                         <div className={styles.bar1}></div>

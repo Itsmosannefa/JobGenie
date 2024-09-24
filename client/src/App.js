@@ -6,7 +6,7 @@ import Register from "./pages/signupPage/signUp.jsx";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/contact/contact";
-import Job from "./pages/jobs/job"; // Import the JobList component
+import Job from "./pages/Job.js"; // Import the JobList component
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/routes/PrivateRoute";
@@ -67,7 +67,7 @@ function App() {
         />
         {/* Add JobList route */}
         <Route
-          path="/job"
+          path="/Job"
           element={
             <PrivateRoute>
               <Job /> {/* Jobs page is protected with PrivateRoute */}

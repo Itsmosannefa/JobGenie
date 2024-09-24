@@ -22,9 +22,24 @@ body {
     z-index: 10;
 }
 
+
+.navbar .logo {
+    display: contents;
+}
 .navbar .logo img {
     max-width: 50px;
     height: auto;
+}
+
+.job-genie {
+    color: #fff;
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: bolder;
+}
+
+.genie {
+    color: #007bff;
 }
 
 .menu-icon {
