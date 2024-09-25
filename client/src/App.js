@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./components/routes/PrivateRoute";
 import PublicRoute from "./components/routes/PublicRoute";
-import JobSearch from "./pages/JobSearch.js";
+import JobSearch from "./pages/SearchPage.js";
 
 function App() {
   return (
